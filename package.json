@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "rm -rf node_modules package-lock.json && npm install",
     "dev": "vite",
     "build": "vite build",
+    "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -30,4 +32,9 @@
     "tailwindcss": "^3.4.1",
     "vite": "^6.1.0"
   }
+}
+"scripts": {
+  "prebuild": "rm -rf node_modules package-lock.json && npm install",
+  "build": "vite build",
+  "start": "node server.js"
 }
