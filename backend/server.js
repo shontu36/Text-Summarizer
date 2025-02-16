@@ -2,6 +2,11 @@ import express from "express"; // Use ES module syntax
 import axios from "axios";
 import cors from "cors";
 
+import dotenv from "dotenv";
+dotenv.config(); // Load environment variables
+
+const API_TOKEN = process.env.HUGGING_FACE_TOKEN;
+
 const app = express(); // Initialize the Express app
 const PORT = 5000;
 
@@ -18,8 +23,8 @@ app.post("/summarize", async (req, res) => {
   const { text } = req.body;
   const API_URL =
     "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-  const API_TOKEN = "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";
 
+  const API_TOKEN = process.env.HUGGING_FACE_TOKEN; // Use environment variable
   try {
     const response = await axios.post(
       API_URL,
